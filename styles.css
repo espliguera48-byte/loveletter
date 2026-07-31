@@ -1,0 +1,183 @@
+:root {
+  color-scheme: dark;
+  --rose: #ff5e7a;
+  --rose-deep: #d43d63;
+  --cream: #fff7f8;
+  --text: #4b2334;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #ffe9ef 0%, #ffd7e2 50%, #ffcce0 100%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+body.letter-page {
+  display: block;
+  padding: 2rem 0;
+  overflow-y: auto;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: rgba(255, 94, 122, 0.4);
+  animation: float 8s ease-in-out infinite;
+}
+
+.heart-1 { top: 10%; left: 8%; animation-delay: 0s; }
+.heart-2 { top: 20%; right: 12%; animation-delay: 1.5s; }
+.heart-3 { bottom: 15%; left: 18%; animation-delay: 2.5s; }
+.heart-4 { bottom: 10%; right: 8%; animation-delay: 4s; }
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(90vw, 640px);
+  padding: 2.5rem 2rem 2rem;
+  border-radius: 2rem;
+  background: rgba(255, 247, 248, 0.88);
+  box-shadow: 0 20px 60px rgba(212, 61, 99, 0.2);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.heart-link {
+  text-decoration: none;
+}
+
+.heart-badge {
+  width: min(78vw, 320px);
+  aspect-ratio: 1;
+  margin: 0 auto 1.25rem;
+  padding: 1.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 45% 55% 50% 50% / 60% 45% 55% 40%;
+  background: linear-gradient(135deg, #ffe6ee 0%, #ffc4d6 100%);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.7), 0 18px 40px rgba(212, 61, 99, 0.2);
+  transform: rotate(-6deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.heart-link:hover .heart-badge,
+.heart-link:focus-visible .heart-badge {
+  transform: rotate(-4deg) scale(1.02);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.7), 0 24px 44px rgba(212, 61, 99, 0.22);
+}
+
+.heart-icon {
+  font-size: clamp(5rem, 12vw, 7.5rem);
+  line-height: 1;
+  color: var(--rose);
+  margin-bottom: 0.2rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: 'Parisienne', cursive;
+  font-size: clamp(2rem, 4.6vw, 3.1rem);
+  color: var(--rose-deep);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.message {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0 auto 1.5rem;
+  max-width: 500px;
+}
+
+.cta-link {
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  color: white;
+  padding: 0.95rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px rgba(212, 61, 99, 0.23);
+}
+
+.cta-link:hover,
+.cta-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+.letter {
+  margin-top: 1.4rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(255, 245, 248, 0.95), rgba(255, 223, 232, 0.95));
+  border: 1px solid rgba(212, 61, 99, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  text-align: left;
+}
+
+.letter-title {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem;
+  color: var(--rose-deep);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: var(--rose-deep);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  text-decoration: underline;
+}
+
+body.letter-page .card {
+  max-height: min(85vh, 900px);
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.signature {
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+}
+
+.signature-name {
+  margin-top: 0;
+  font-style: italic;
+  color: var(--rose-deep);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(8deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
